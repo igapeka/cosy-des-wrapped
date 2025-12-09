@@ -1,6 +1,5 @@
 import { MeshGradient } from "@paper-design/shaders-react";
 import slide01 from "./slide01.module.css";
-import imgUrl from "public/2025.svg";
 
 interface Props {
   userName: string;
@@ -9,7 +8,7 @@ interface Props {
 function Slide01({ userName }: Props) {
   return (
     <div className={slide01.slide}>
-      <img src={imgUrl} alt="" className={slide01.svg} />
+      <img src="./2025.svg" alt="" className={slide01.svg} />
       <div>
         <p className={slide01.hi}>Привет,</p>
         <p className={slide01.name}>{userName}</p>
