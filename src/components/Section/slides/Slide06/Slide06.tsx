@@ -21,7 +21,7 @@ function Slide06({ total }: Props) {
         outerGlow={0.5}
         scale={0.79}
         frame={954092.6999999972}
-        image="public/heart.svg"
+        image="../src/assets/heart.svg"
         colors={["#9d7e53ff", "#F5DDBB"]}
         colorBack="#00000000"
         style={{
