@@ -30,7 +30,7 @@ function Slide04({ reactionsGot }: Props) {
         outerGlow={0.5}
         scale={0.79}
         frame={954092.6999999972}
-        image="../src/assets/heart.svg"
+        image=".../src/assets/heart.svg"
         colors={["#3F8491", "#F5DDBB"]}
         colorBack="#00000000"
         style={{
