@@ -1,0 +1,46 @@
+.slide {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 3fr 1fr;
+  padding: 12px;
+  background: linear-gradient(160deg, #a2abad 0%, #cdd3d4 50%, #a2abad 100%);
+}
+
+.reaction {
+  font-family: system-ui, sans-serif;
+  font-size: 200px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transform: rotate(-12deg) translateX(24px);
+  filter: url("#mask");
+}
+
+.svg {
+  width: 180px;
+  position: absolute;
+  top: calc(50% - 120px);
+  left: -90px;
+}
+
+.filter {
+  position: absolute;
+}
+
+.kode {
+  transform: scale(0.5) translateX(280px) rotate(20deg);
+}
+
+.caption {
+  color: #01323f;
+  font-family: "Playfair Display";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  transform: rotate(-2deg);
+}
