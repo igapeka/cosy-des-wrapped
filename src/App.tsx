@@ -11,35 +11,56 @@ import Slide09 from "./components/Section/slides/Slide09/Slide09";
 import Slide10 from "./components/Section/slides/Slide10/Slide10";
 import { supabase } from "./components/Section/supabase";
 // import previewData from "./previewData.json";
-import { init, useLaunchParams } from "@tma.js/sdk-react";
+// import { init, useLaunchParams } from "@tma.js/sdk-react";
 import { useState, useEffect } from "react";
 import type { User } from "./User";
 
-init();
+// init();
 
 // const user = previewData[9];
 
 function App() {
-  const launchParams = useLaunchParams();
-  const tgUser = launchParams?.tgWebAppData?.user;
+  // const launchParams = useLaunchParams();
+  // const tgUser = launchParams?.tgWebAppData?.user;
+  const tgUser = {
+    id: 5011682404,
+  };
 
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    if (!tgUser?.id) return;
+    getUser();
+  }, []);
 
-    const fetchData = async () => {
-      const { data, error } = await supabase
-        .from("users-data")
-        .select()
-        .eq("userId", tgUser.id)
-        .single();
+  const getUser = async () => {
+    const { data, error } = await supabase
+      .from("users-data")
+      .select()
+      .eq("userId", tgUser.id)
+      .single();
 
-      if (!error) setUser(data);
-    };
+    if (error) {
+      console.log("oshibka", error);
+    } else {
+      setUser(data);
+    }
+  };
 
-    fetchData();
-  }, [tgUser]);
+  // useEffect(() => {
+  //   if (!tgUser?.id) return;
+
+  //   const fetchData = async () => {
+  //     const { data, error } = await supabase
+  //       .from("users-data")
+  //       .select()
+  //       .eq("userId", tgUser.id)
+  //       .maybeSingle();
+
+  //     if (!error) setUser(data);
+  //   };
+
+  //   fetchData();
+  // }, [tgUser]);
 
   // пока загружается
   if (!user) return <div>Loading...</div>;

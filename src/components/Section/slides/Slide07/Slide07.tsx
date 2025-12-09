@@ -44,12 +44,12 @@ function Slide07({ reaction }: Props) {
       </svg>
       <div>
         <p className={slide07.reaction}>{reaction}</p>
-        <img className={slide07.kode} src="src/assets/kode.svg" alt="" />
+        <img className={slide07.kode} src="public/kode.svg" alt="" />
       </div>
       <p className={slide07.caption}>
         А это — твоя самая любимая реакция в этом году
       </p>
-      <img className={slide07.svg} src="src/assets/apple.svg" alt="" />
+      <img className={slide07.svg} src="public/apple.svg" alt="" />
     </div>
   );
 }

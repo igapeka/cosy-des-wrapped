@@ -30,7 +30,7 @@ function Slide08() {
         scale={0.6}
         colors={["#3F8491", "#F5DDBB"]}
         colorBack="#022735"
-        image="src/assets/movie.svg"
+        image="public/movie.svg"
         style={{
           backgroundColor: "#000000",
           backgroundRepeat: "no-repeat",
