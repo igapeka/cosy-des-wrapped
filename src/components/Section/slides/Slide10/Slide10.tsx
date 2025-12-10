@@ -1,4 +1,4 @@
-import { Warp } from "@paper-design/shaders-react";
+import { MeshGradient } from "@paper-design/shaders-react";
 import slide10 from "./slide10.module.css";
 
 interface Props {
@@ -41,17 +41,14 @@ function Slide10({ msgtotal, reactsgiven, reactsgot, date }: Props) {
           <p className={slide10.value}>{toDate}</p>
         </div>
       </div>
-      <Warp
-        speed={0.5}
+      <MeshGradient
+        speed={1}
         scale={1}
-        softness={1}
-        proportion={0.45}
-        swirl={0.8}
-        swirlIterations={10}
-        shape="checks"
-        distortion={0.25}
-        shapeScale={0.14}
-        frame={75256.08999999701}
+        distortion={1}
+        swirl={1}
+        frame={1329342.357}
+        grainMixer={0.1}
+        grainOverlay={0.4}
         colors={["#B6863C", "#F5DDBB"]}
         style={{
           inset: "0",

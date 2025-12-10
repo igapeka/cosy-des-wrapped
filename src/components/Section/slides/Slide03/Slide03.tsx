@@ -1,4 +1,3 @@
-import { GrainGradient } from "@paper-design/shaders-react";
 import slide03 from "./slide03.module.css";
 
 interface Props {
@@ -21,6 +20,78 @@ function Slide03({ text, image, name, date }: Props) {
 
   return (
     <div className={slide03.slide}>
+      <svg className={slide03.filter}>
+        <defs>
+          <filter
+            id="gggrain-filter"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+            filterUnits="objectBoundingBox"
+            primitiveUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.5"
+              numOctaves="1"
+              seed="1"
+              stitchTiles="stitch"
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              result="turbulence"
+            ></feTurbulence>
+            <feColorMatrix
+              type="saturate"
+              values="0"
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              in="turbulence"
+              result="colormatrix"
+            ></feColorMatrix>
+            <feComponentTransfer
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              in="colormatrix"
+              result="componentTransfer"
+            >
+              <feFuncR type="linear" slope="3"></feFuncR>
+              <feFuncG type="linear" slope="3"></feFuncG>
+              <feFuncB type="linear" slope="3"></feFuncB>
+            </feComponentTransfer>
+            <feColorMatrix
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              in="componentTransfer"
+              result="colormatrix2"
+              type="matrix"
+              values="1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 25 -17"
+            ></feColorMatrix>
+          </filter>
+        </defs>
+        <g>
+          <rect
+            width="100%"
+            height="100%"
+            fill="transparent"
+            filter="url(#gggrain-filter)"
+            opacity="1"
+            style={{ mixBlendMode: "soft-light" }}
+          ></rect>
+        </g>
+      </svg>
       <p className={slide03.hi}>Твой год начался {toDate} с этого сообщения:</p>
       <div className={slide03.message}>
         {image && <img src={image} alt="" className={slide03.image} />}
@@ -32,26 +103,6 @@ function Slide03({ text, image, name, date }: Props) {
         )}
         {text && <p className={slide03.text}>{text}</p>}
       </div>
-      <GrainGradient
-        speed={0}
-        scale={1.3}
-        rotation={0}
-        offsetX={0}
-        offsetY={0.7}
-        softness={0.5}
-        intensity={0.5}
-        noise={0.25}
-        shape="sphere"
-        colors={["#0E4458", "#377B97", "#4696B7", "#F1E2C8"]}
-        colorBack="#00000000"
-        style={{
-          backgroundColor: "#022735",
-          backgroundRepeat: "no-repeat",
-          inset: "0",
-          position: "absolute",
-          zIndex: "-999",
-        }}
-      />
     </div>
   );
 }
