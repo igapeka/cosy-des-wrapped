@@ -9,7 +9,6 @@ function Slide02({ total }: Props) {
   return (
     <>
       <div className={slide02.slide}>
-        <p>e</p>
         <SlotCounter
           value={total}
           duration={1.3}

@@ -1,15 +1,16 @@
 import Section from "./components/Section/Section";
-import Slide01 from "./components/Section/slides/Slide01/Slide01";
-import Slide02 from "./components/Section/slides/Slide02/Slide02";
-import Slide03 from "./components/Section/slides/Slide03/Slide03";
-import Slide04 from "./components/Section/slides/Slide04/Slide04";
-import Slide05 from "./components/Section/slides/Slide05/Slide05";
-import Slide06 from "./components/Section/slides/Slide06/Slide06";
-import Slide07 from "./components/Section/slides/Slide07/Slide07";
-import Slide08 from "./components/Section/slides/Slide08/Slide08";
-import Slide09 from "./components/Section/slides/Slide09/Slide09";
-import Slide10 from "./components/Section/slides/Slide10/Slide10";
-import { supabase } from "./components/Section/supabase";
+import Empty from "./components/Empty/Empty";
+import Slide01 from "./components/slides/Slide01/Slide01";
+import Slide02 from "./components/slides/Slide02/Slide02";
+import Slide03 from "./components/slides/Slide03/Slide03";
+import Slide04 from "./components/slides/Slide04/Slide04";
+import Slide05 from "./components/slides/Slide05/Slide05";
+import Slide06 from "./components/slides/Slide06/Slide06";
+import Slide07 from "./components/slides/Slide07/Slide07";
+import Slide08 from "./components/slides/Slide08/Slide08";
+import Slide09 from "./components/slides/Slide09/Slide09";
+import Slide10 from "./components/slides/Slide10/Slide10";
+import { supabase } from "./supabase";
 // import previewData from "./previewData.json";
 import { useState, useEffect } from "react";
 import type { User } from "./User";
@@ -17,14 +18,15 @@ import type { User } from "./User";
 // const user = previewData[9];
 
 function App() {
-  window.Telegram?.WebApp?.ready();
-  const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  // window.Telegram?.WebApp?.ready();
+  // const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
 
-  // const tgUser = {
-  //   id: 5116395395,
-  // };
+  const tgUser = {
+    id: 5168897180,
+  };
 
   const [user, setUser] = useState<User | null>(null);
+  const [found, setFound] = useState("finding");
 
   useEffect(() => {
     getUser();
@@ -39,11 +41,21 @@ function App() {
 
     if (error) {
       console.log("oshibka", error);
+      setFound("not found");
     } else {
       setUser(data);
     }
   };
-  if (!user) return <div>Loading...</div>;
+  if (found === "not found")
+    return (
+      <Empty
+        symbol={"🤷"}
+        text={
+          "Ты либо не в чате, либо мы от тебя не слышали ни слова за весь год. Такие дела."
+        }
+      />
+    );
+  if (!user) return <Empty symbol={"⏳"} text={"Загрузочка..."} />;
   return (
     <>
       <Section>
