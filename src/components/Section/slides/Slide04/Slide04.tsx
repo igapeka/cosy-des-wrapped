@@ -11,6 +11,7 @@ function Slide04({ reactionsGot }: Props) {
     <div className={slide04.slide}>
       <SlotCounter
         value={reactionsGot}
+        duration={1.3}
         containerClassName={slide04.total}
         charClassName={slide04.totalChar}
         animateOnVisible={{

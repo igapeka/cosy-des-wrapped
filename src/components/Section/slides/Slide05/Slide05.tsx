@@ -27,7 +27,7 @@ function Slide05({ text, image, name, reactions }: Props) {
         <div className={slide05.wrap}>
           {reactions &&
             reactions.map((reaction) => (
-              <p className={slide05.total}>
+              <p className={slide05.total} key={reaction.r}>
                 {reaction.r} {reaction.c}
               </p>
             ))}

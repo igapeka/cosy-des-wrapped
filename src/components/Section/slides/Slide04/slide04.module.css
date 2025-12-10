@@ -16,6 +16,13 @@
   font-size: 132px;
   font-weight: 900;
   line-height: normal;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 20%,
+    black 50%,
+    black 90%,
+    transparent 100%
+  );
 }
 
 .totalChar:not(:last-of-type) {

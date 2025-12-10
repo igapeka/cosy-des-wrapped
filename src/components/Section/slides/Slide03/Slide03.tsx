@@ -30,12 +30,12 @@ function Slide03({ text, image, name, date }: Props) {
             height="140%"
             filterUnits="objectBoundingBox"
             primitiveUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
             <feTurbulence
               type="fractalNoise"
-              baseFrequency="0.5"
-              numOctaves="1"
+              baseFrequency="0.7"
+              numOctaves="3"
               seed="1"
               stitchTiles="stitch"
               x="0%"

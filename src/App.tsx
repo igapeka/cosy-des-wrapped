@@ -18,11 +18,10 @@ import type { User } from "./User";
 
 function App() {
   window.Telegram?.WebApp?.ready();
-
   const tgUser = window.Telegram?.WebApp?.initDataUnsafe?.user;
 
   // const tgUser = {
-  //   id: 5147839987,
+  //   id: 5116395395,
   // };
 
   const [user, setUser] = useState<User | null>(null);
